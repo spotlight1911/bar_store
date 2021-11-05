@@ -14,10 +14,10 @@ class CreateIngridientsCoctailsTable extends Migration
     {
         Schema::create('ingridients_coctails', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('ingridient_id')
+            $table->integer('ingridient_id')
                 ->unsigned()
                 ->index();
-            $table->bigInteger('coctail_id')
+            $table->integer('coctail_id')
                 ->unsigned()
                 ->index();
             $table->string('count_of_ingridient',50);
