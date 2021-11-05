@@ -57,8 +57,8 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}">Коктейли</a></li>
-                    <li><a href="{{ url('/main/bars') }}">Игридиеты</a></li>
-                    <li><a href="{{ url('/home') }}">Бары Днепра</a></li>
+                    <li><a href="{{ url('/home') }}">Игридиеты</a></li>
+                    <li><a href="{{ url('/main/bars') }}">Бары Днепра</a></li>
                     <li><a href="{{ url('/home') }}">Корзина</a></li>
                 </ul>
 
