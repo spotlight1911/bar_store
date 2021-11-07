@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Http\Request;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,3 +20,17 @@ Route::get('/', function () {
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+
+
+
+Route::get('/cocktails/ingridients', function (Request $request){
+    $ingridients = \App\Model\Ingridient::all();
+    return view('cocktails.cocktailsIngredients',
+        [
+            'ingridients'=>$ingridients
+        ]);
+})->name('cocktails.ingredients');
+
+Route::post('/cocktails/cocktails',function (){
+    //TODO get cocktails with added ingridients
+})->name('cocktails.cocktails');
