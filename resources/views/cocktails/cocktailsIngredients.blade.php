@@ -8,6 +8,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 Please select ingridients
+                {{$ingridientId}}
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -26,7 +27,7 @@
                             </td>
 
                             <td>
-                                <form method="get" action="{{route('cocktails.ingredients')}}">
+                                <form method="get" action="{{route('cocktails.ingridientId')}}">
                                     <button class="btn btn-success"><i class="fa fa-get-pocket"></i> Add</button>
                                     <input type="hidden" name="ingridient-id" value="{{$ingridient->id}}">
                                 </form>

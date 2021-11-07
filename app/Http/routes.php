@@ -13,21 +13,30 @@
 
 use Illuminate\Http\Request;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::auth();
 
+Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
+    $cocktailController->ingridientId($request);
+    return redirect(route('cocktails.ingredients'));
+})->name('cocktails.ingridientId');
 
 
 
-Route::get('/cocktails/ingridients', function (Request $request){
+Route::get('/cocktails/ingridients', function (){
+    if(!empty($_GET)){
+        session(['ingridient-id' => 0]);
+    }
     $ingridients = \App\Model\Ingridient::all();
     return view('cocktails.cocktailsIngredients',
         [
-            'ingridients'=>$ingridients
+            'ingridients'=>$ingridients,
+            'ingridientId'=>session('ingridient-id')
         ]);
 })->name('cocktails.ingredients');
 
