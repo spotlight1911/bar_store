@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIngridientsCoctailsTable extends Migration
+class CreateIngridientsCocktailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,12 +12,12 @@ class CreateIngridientsCoctailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ingridients_coctails', function (Blueprint $table) {
+        Schema::create('ingridients_cocktails', function (Blueprint $table) {
             $table->increments('id');
-            $table->bigInteger('ingridient_id')
+            $table->integer('ingridient_id')
                 ->unsigned()
                 ->index();
-            $table->bigInteger('coctail_id')
+            $table->integer('cocktail_id')
                 ->unsigned()
                 ->index();
             $table->string('count_of_ingridient',50);
@@ -25,9 +25,9 @@ class CreateIngridientsCoctailsTable extends Migration
             $table->foreign('ingridient_id')
                 ->references('id')
                 ->on('ingridients');
-            $table->foreign('coctail_id')
+            $table->foreign('cocktail_id')
                 ->references('id')
-                ->on('coctails');
+                ->on('cocktails');
         });
     }
 
