@@ -9,7 +9,7 @@
                     <table>
                         <tr>
                             <td rowspan="2"><img src="https://img1.russianfood.com/dycontent/images_upl/44/sm_43179.jpg" class="imgOfBar" ></td>
-                            <td><h2>Сайдкар</h2></td>
+                            <td><h2>{{$coctails[0]->name}}</h2></td>
                         </tr>
                         <tr>
                             <td>
