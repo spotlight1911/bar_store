@@ -20,3 +20,5 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 Route::get('/main/bars', 'HomeController@bars');
+
+Route::get('/main/listOfCoctails', 'HomeController@listOfCoctails');
