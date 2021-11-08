@@ -31,4 +31,8 @@ class HomeController extends Controller
     {
         return view('main/bars');
     }
+
+    public function listOfCoctails(){
+        return view('main/listOfCoctails');
+    }
 }

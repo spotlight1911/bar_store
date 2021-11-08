@@ -23,3 +23,11 @@ Route::get('/admin/add', 'AdminController@index')->middleware('is.admin');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/main/bars', 'HomeController@bars');
+
+Route::get('/main/listOfCoctails', function (){
+    $coctails = \App\Models\Coctail::all();
+    return view('main.listOfCoctails',
+        [
+            'coctails'=> $coctails,
+        ]);
+});
