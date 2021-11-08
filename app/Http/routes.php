@@ -21,17 +21,14 @@ Route::auth();
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
-Route::get('/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
-    $cocktailController->ingridientId($request);
-    return redirect(route('cocktails.ingredients'));
+Route::get('/cocktails/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
+    //$coctails =
+    $cocktailController->addCocktails();
 })->name('cocktails.ingridientId');
 
 
 
 Route::get('/cocktails/ingridients', function (){
-    if(!empty($_GET)){
-        session(['ingridient-id' => 0]);
-    }
     $ingridients = \App\Model\Ingridient::all();
     return view('cocktails.cocktailsIngredients',
         [
@@ -39,7 +36,3 @@ Route::get('/cocktails/ingridients', function (){
             'ingridientId'=>session('ingridient-id')
         ]);
 })->name('cocktails.ingredients');
-
-Route::post('/cocktails/cocktails',function (){
-    //TODO get cocktails with added ingridients
-})->name('cocktails.cocktails');

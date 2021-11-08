@@ -14,6 +14,9 @@
                 <table class="table table-striped task-table">
                     <!-- Тело таблицы -->
                     <tbody>
+                    <form method="get" id="addingridients" action="{{route('cocktails.ingridientId')}}">
+                        <button class="btn btn-success"><i class="fa fa-get-pocket"></i> Get cocktails</button>
+                    </form>
                     @foreach ($ingridients as $ingridient)
                         <tr>
                             <td >
@@ -27,13 +30,13 @@
                             </td>
 
                             <td>
-                                <form method="get" action="{{route('cocktails.ingridientId')}}">
-                                    <button class="btn btn-success"><i class="fa fa-get-pocket"></i> Add</button>
-                                    <input type="hidden" name="ingridient-id" value="{{$ingridient->id}}">
-                                </form>
-                                <form method="get" action="{{route('cocktails.cocktails')}}">
-                                    <button class="btn btn-success"><i class="fa fa-get-pocket"></i> Get cocktails</button>
-                                </form>
+{{--                                <form method="get" action="{{route('cocktails.ingridientId')}}">--}}
+{{--                                    --}}
+{{--                                </form>--}}
+
+                                    <label>Добавить ингредиент</label>
+                                    <input form = "addingridients" type="checkbox" name="{{$ingridient->id}}" value="{{$ingridient->id}}">
+
                             </td>
                         </tr>
                     @endforeach
