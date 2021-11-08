@@ -16,9 +16,8 @@ Route::get('/', function () {
 });
 
 Route::auth();
-Route::group(['middleware' => ['auth', 'isadmin'], 'namespace' => 'Admin', 'prefix' => 'admin', 'as' => 'admin.'], function ()
-{
-    Route::resource('tasks', 'AdminController');
-});
+
+Route::resource('admin', 'AdminController')->middlever('is.admin');
+
 
 Route::get('/home', 'HomeController@index');
