@@ -21,3 +21,5 @@ Route::resource('admin', 'AdminController')->middlever('is.admin');
 
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/main/bars', 'HomeController@bars');
