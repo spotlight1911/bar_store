@@ -3,7 +3,7 @@
 @section('content')
 
     <ul>
-        <li></li>
-        <li></li>
+        <li>добавить ингридиент</li>
+        <li>добавить коктель</li>
     </ul>
 @endsection
