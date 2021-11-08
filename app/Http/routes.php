@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Route::auth();
 
-Route::resource('admin', 'AdminController')->middlever('is.admin');
+Route::get('/admin/add', 'AdminController@index')->middleware('is.admin');
 
 
 Route::get('/home', 'HomeController@index');

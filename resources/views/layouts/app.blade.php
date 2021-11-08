@@ -60,6 +60,9 @@
                     <li><a href="{{ url('/home') }}">Игридиеты</a></li>
                     <li><a href="{{ url('/main/bars') }}">Бары Днепра</a></li>
                     <li><a href="{{ url('/home') }}">Корзина</a></li>
+                        @if(Auth::user()->isAdmin())
+                            <li><a href="{{ url('/admin/add') }}">Admin Panel</a></li>
+                        @endif
                 </ul>
 
                 <!-- Right Side Of Navbar -->
