@@ -35,7 +35,7 @@
 {{--                                </form>--}}
 
                                     <label>Добавить ингредиент</label>
-                                    <input form = "addingridients" type="checkbox" name="{{$ingridient->id}}" value="{{$ingridient->id}}">
+                                    <input form = "addingridients" type="checkbox" name="ingridienеs[]" value="{{$ingridient->id}}">
 
                             </td>
                         </tr>

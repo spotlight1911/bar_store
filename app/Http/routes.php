@@ -22,8 +22,7 @@ Route::auth();
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 Route::get('/cocktails/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
-    //$coctails =
-    $cocktailController->addCocktails();
+    $cocktailController->getCocktails($request);
 })->name('cocktails.ingridientId');
 
 
