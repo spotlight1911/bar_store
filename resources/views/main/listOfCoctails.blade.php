@@ -33,10 +33,10 @@
                 <table>
         @foreach($coctails as $coctail)
              <tr>
-                   <td><h2><?php $coctail['name']?>
-                       </h2></td></tr>
+                 <td rowspan="2"><img src="{{$coctail->photo}}" class="imgOfBar" ></td>
+                   <td><h2>{{ $coctail->name }}</h2></td>
              </tr>
-
+        @endforeach
                 </table>
                     <footer class="navbar navbar-default ">
                             <div class="navbar-header">

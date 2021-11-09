@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 class DatabaseSeeder extends Seeder
 {
-    private $cocktails=[
+    private $coctails=[
         [
             'name' => "Сайдкар",
             'description' => 'Классический коктейль, традиционно приготавливаемый из коньяка, апельсинового ликёра',
@@ -98,7 +98,7 @@ class DatabaseSeeder extends Seeder
 
     public function run()
     {
-        DB::table('coctails')->insert($this->cocktails);
+        DB::table('coctails')->insert($this->coctails);
         DB::table('ingridients')->insert($this->ingredients);
         DB::table('ingridients_coctails')->insert($this->recipe);
     }
