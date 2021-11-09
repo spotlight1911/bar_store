@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'photo' => 'images/ingridients/cognac.jpg',
         ],
         [
-            'name' => "Лимона",
+            'name' => "Лимон",
             'description' => 'Желтый',
             'photo' => 'images/ingridients/lemon.jpg',
         ],
@@ -61,6 +61,36 @@ class DatabaseSeeder extends Seeder
             'name' => "Лимонная цедра",
             'description' => 'Лимонная цедра',
             'photo' => 'images/ingridients/lemonzest.jpg',
+        ],
+        [
+            'name' => "Мята свежая",
+            'description' => 'Мята свежая',
+            'photo' => 'images/ingridients/mint.jpg',
+        ],
+        [
+            'name' => "Коричневый тростниковый сахар",
+            'description' => 'Коричневый тростниковый сахар',
+            'photo' => 'images/ingridients/brownsugar.jpg',
+        ],
+        [
+            'name' => "Белый ром",
+            'description' => 'Белый ром',
+            'photo' => 'images/ingridients/bacardi.jpg',
+        ],
+        [
+            'name' => "Спрайт",
+            'description' => 'Спрайт',
+            'photo' => 'images/ingridients/sprite.jpg',
+        ],
+        [
+            'name' => "Лайм",
+            'description' => 'Лайм',
+            'photo' => 'images/ingridients/lime.jpg',
+        ],
+        [
+            'name' => "Леда",
+            'description' => 'Лед',
+            'photo' => 'images/ingridients/ice.jpg',
         ]
     ];
     private $recipe=[
