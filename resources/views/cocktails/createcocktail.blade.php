@@ -8,4 +8,9 @@
             </div>
         </form>
     </div>
+    <footer class="navbar navbar-default ">
+        <div class="navbar-header">
+            <h5>Laravel final project php 21-1 @</h5>
+        </div>
+    </footer>
 @endsection
