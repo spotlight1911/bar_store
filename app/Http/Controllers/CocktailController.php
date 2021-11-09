@@ -2,27 +2,46 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ingridient;
+use App\Models\Ingridients_coctail;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
 class CocktailController extends Controller
 {
-    public function ingridientId($request){
-
-    }
-    public function getCocktails($request){
-
-        $ingridCocktail = \App\Models\Ingridients_coctail::wherein('ingridient_id', $request['ingridienеs'])
+    private function cocktailId($request){
+        return \App\Models\Ingridients_coctail::wherein('ingridient_id', $request['ingridienеs'])
             ->pluck('coctail_id')
             ->unique();
-//        $ingridCocktailUniq = array_unique($ingridCocktail);
-//        $coctails =  \App\Models\Coctail::where('id', $ingridCocktail)->get();
-//        dd($request['ingridienеs']);
-        return \App\Models\Coctail::wherein('id', $ingridCocktail)->get();
-//        dd($cocktails['name']);
-//        foreach ($cocktails as $cocktail){
-//
-//        }
     }
+    public function getCocktails($request){
+        $ingridCocktail = $this->cocktailId($request);
+        return \App\Models\Coctail::wherein('id', $ingridCocktail)->get();
+    }
+    public function getMissingIngredients($request){
+        $ingridCocktail = $this->cocktailId($request);
+        $ingridients=[];
+        foreach($ingridCocktail as $id => $value){
+            $allIngr = \App\Models\Ingridients_coctail::where('coctail_id', $ingridCocktail[$id])
+                ->pluck('ingridient_id');
+            $ingWithoutSelect = ($allIngr->diff($request['ingridienеs']))->toArray();
+            if(count($ingWithoutSelect)>0){
+                foreach ($ingWithoutSelect as $kye => $item) {
+                    $ingridientName = Ingridient::where('id', $item)
+                        ->pluck('name');
+                    $countOfIngridient=\App\Models\Ingridients_coctail::where('ingridient_id', $item)
+                        ->pluck('count_of_ingridient');
+                    $ingridients[$value][$ingridientName[0]] = $countOfIngridient[0];
+                }
+            } else{
+                $ingridients[$value]=[];
+            }
+        }
+        return $ingridients;
+    }
+//    public function getIngridientName($request){
+//       return Ingridient::where('id', $request['ingridienеs'])
+//           ->pluck('name');
+//    }
 }

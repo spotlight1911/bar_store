@@ -10,11 +10,6 @@
                 Please select ingridients
             </div>
             <div class="panel-body">
-                <div class="text-center">
-                    <form method="get" id="addingridients" action="{{url('cocktails/cocktails')}}">
-                        <button class="btn btn-success"><i class="fa fa-get-pocket"></i> Get cocktails</button>
-                    </form>
-                </div>
                 <table class="table table-striped task-table">
                     <!-- Тело таблицы -->
                     <tbody>
@@ -29,6 +24,16 @@
                             </td>
                             <td class="table-text">
                                 <div>{{$cocktail->description}}</div>
+                                    @if(count($ingridients[$cocktail->id])>0)
+                                        <div>
+                                            Для изготовления этого коктейля вам еще необходимо:
+                                            <ul>
+                                                @foreach($ingridients[$cocktail->id] as $name => $count)
+                                                    <li>{{$name}} - {{$count}}</li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
                             </td>
                         </tr>
                     @endforeach

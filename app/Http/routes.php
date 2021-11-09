@@ -25,9 +25,11 @@ Route::get('/admin/add', 'AdminController@index')->middleware('is.admin');
 Route::get('/', 'HomeController@index');
 Route::get('/cocktails/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
     $cocktails = $cocktailController->getCocktails($request);
+    $ingridients = $cocktailController->getMissingIngredients($request);
     return view('cocktails.cocktailsWithIngredients',
         [
             'cocktails' => $cocktails,
+            'ingridients'=>$ingridients,
         ]);
 })->name('cocktails.ingridientId');
 
