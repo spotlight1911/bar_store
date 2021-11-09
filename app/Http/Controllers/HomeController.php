@@ -24,12 +24,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('cocktails.createcocktail');
+//        return view('home');
     }
 
     public function bars()
     {
         return view('main/bars');
+    }
+    public function ingridients()
+    {
+        return view('main/ingridients');
     }
 
     public function listOfCoctails(){
