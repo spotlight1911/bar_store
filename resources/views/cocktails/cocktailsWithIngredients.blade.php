@@ -4,11 +4,10 @@
     <!-- Форма создания задачи... -->
 
     <!-- Текущие задачи -->
-    @if (count($ingridients) > 0)
+    @if (count($cocktails) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
                 Please select ingridients
-                {{$ingridientId}}
             </div>
             <div class="panel-body">
                 <div class="text-center">
@@ -20,20 +19,16 @@
                     <!-- Тело таблицы -->
                     <tbody>
 
-                    @foreach ($ingridients as $ingridient)
+                    @foreach ($cocktails as $cocktail)
                         <tr>
                             <td >
-                                <div><img src="{{asset($ingridient->photo)}}" alt = "Not have photo"/></div>
+                                <div><img src="{{asset($cocktail->photo)}}" alt = "Not have photo"/></div>
                             </td>
                             <td class="table-text">
-                                <div>{{$ingridient->name }}</div>
+                                <div>{{$cocktail->name }}</div>
                             </td>
                             <td class="table-text">
-                                <div>{{$ingridient->description}}</div>
-                            </td>
-                            <td>
-                                <label>Добавить ингредиент</label>
-                                <input form = "addingridients" type="checkbox" name="ingridienеs[]" value="{{$ingridient->id}}">
+                                <div>{{$cocktail->description}}</div>
                             </td>
                         </tr>
                     @endforeach

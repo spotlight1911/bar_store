@@ -12,7 +12,7 @@ class CreateCocktailsTable extends Migration
      */
     public function up()
     {
-        Schema::create('cocktails', function (Blueprint $table) {
+        Schema::create('coctails', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',255);
             $table->text('description',500);
