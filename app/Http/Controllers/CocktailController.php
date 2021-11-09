@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Ingridients_coctail;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,13 +13,16 @@ class CocktailController extends Controller
     }
     public function getCocktails($request){
 
-        $cocktailsByIngredients = \App\Models\Ingridients_coctail::wherein('ingridient_id', $request['ingridienеs'])->pluck('coctail_id')->unique();
-//        return \App\Models\Coctail::wherein('id', $ingridCocktail)->get();
-//        $allIngrToCoctail = Ingridients_coctail::wherein('coctail_id', $cocktailsByIngredients)->value('count_of_ingridient','ingridient_id');
-        $cocktails =  \App\Models\Coctail::wherein('id', $cocktailsByIngredients)->get();
-//        $allIngrToCoctail = Ingridients_coctail::wherein('coctail_id', $cocktailsByIngredients)->pluck('count_of_ingridient','ingridient_id');
-        $allIngrToCoctail = Ingridients_coctail::wherein('coctail_id', $cocktailsByIngredients)
-            ->join('ingridients', 'id', '=', 'ingridient_id' );
-        dd($allIngrToCoctail);
+        $ingridCocktail = \App\Models\Ingridients_coctail::wherein('ingridient_id', $request['ingridienеs'])
+            ->pluck('coctail_id')
+            ->unique();
+//        $ingridCocktailUniq = array_unique($ingridCocktail);
+//        $coctails =  \App\Models\Coctail::where('id', $ingridCocktail)->get();
+//        dd($request['ingridienеs']);
+        return \App\Models\Coctail::wherein('id', $ingridCocktail)->get();
+//        dd($cocktails['name']);
+//        foreach ($cocktails as $cocktail){
+//
+//        }
     }
 }

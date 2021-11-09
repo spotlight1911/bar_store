@@ -115,9 +115,44 @@ class DatabaseSeeder extends Seeder
             "count_of_ingridient"=>"Долька"
         ],
         [
+            "ingridient_id"=>"6",
+            "coctail_id"=>2,
+            "count_of_ingridient"=>"4-5 веточек"
+        ],
+        [
             "ingridient_id"=>"5",
             "coctail_id"=>1,
             "count_of_ingridient"=>"По желанию"
+        ],
+        [
+            "ingridient_id"=>"7",
+            "coctail_id"=>2,
+            "count_of_ingridient"=>"1 чайная ложка"
+        ],
+        [
+            "ingridient_id"=>"8",
+            "coctail_id"=>2,
+            "count_of_ingridient"=>"50 мл.ю"
+        ],
+        [
+            "ingridient_id"=>"9",
+            "coctail_id"=>2,
+            "count_of_ingridient"=>"60 мл."
+        ],
+        [
+            "ingridient_id"=>"10",
+            "coctail_id"=>2,
+            "count_of_ingridient"=>"сколько войдет"
+        ],
+        [
+            "ingridient_id"=>"11",
+            "coctail_id"=>2,
+            "count_of_ingridient"=>"сколько войдет"
+        ],
+        [
+            "ingridient_id"=>"7",
+            "coctail_id"=>5,
+            "count_of_ingridient"=>"4-5 веточек"
         ]
     ];
     /**
