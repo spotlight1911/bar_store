@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+use Illuminate\Http\Request;
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
 
 Route::auth();
 
@@ -21,6 +23,10 @@ Route::get('/admin/add', 'AdminController@index')->middleware('is.admin');
 
 
 Route::get('/home', 'HomeController@index');
+Route::get('/cocktails/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
+    $cocktailController->getCocktails($request);
+})->name('cocktails.ingridientId');
+
 
 Route::get('/main/bars', 'HomeController@bars');
 
@@ -31,3 +37,13 @@ Route::get('/main/listOfCoctails', function (){
             'coctails'=> $coctails,
         ]);
 });
+
+
+Route::get('/cocktails/ingridients', function (){
+    $ingridients = \App\Model\Ingridient::all();
+    return view('cocktails.cocktailsIngredients',
+        [
+            'ingridients'=>$ingridients,
+            'ingridientId'=>session('ingridient-id')
+        ]);
+})->name('cocktails.ingredients');
