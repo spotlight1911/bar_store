@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <form method="get" action="{{route('cocktails.ingredients')}}">
-        <input type="submit" value="Create your cocktail">
-    </form>
+    <div style="background-image: url('images/backgrounds/maincreatecocktail.jpg'); height: 800px">
+        <form method="get" action="{{url('cocktails/ingridients')}}">
+            <div class="text-center">
+            <button type="submit" class="btn btn-default btn-lg">Create your cocktail</button>
+            </div>
+        </form>
+    </div>
 @endsection

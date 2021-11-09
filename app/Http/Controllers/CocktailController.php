@@ -13,7 +13,7 @@ class CocktailController extends Controller
     }
     public function getCocktails($request){
 
-        $ingridCocktail = \App\Model\Ingridients_cocktail::wherein('ingridient_id', $request['ingridienеs'])->pluck('cocktail_id');
+        $ingridCocktail = \App\Models\Ingridients_coctail::wherein('ingridient_id', $request['ingridienеs'])->pluck('coctail_id');
 //        $ingridCocktailUniq = array_unique($ingridCocktail);
 //        $cocktails = \App\Model\Cocktail::where('id', $ingridCocktailUniq)->get();
 //        dd($cocktails['name']);
