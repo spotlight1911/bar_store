@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 class DatabaseSeeder extends Seeder
 {
-    private $cocktails=[
+    private $coctails=[
         [
             'name' => "Сайдкар",
             'description' => 'Классический коктейль, традиционно приготавливаемый из коньяка, апельсинового ликёра',
@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
             'name' => "Мохито",
             'description' => 'Освежающий сладкий лонг на основе рома с большим количеством мяты и лайма',
             'recipe' => 'Мята свежая - 4-5 веточек. Коричневый тростниковый сахар (или обычный) - 1 ч. л. Белый ром (например, Bacardi) - 50 мл. Спрайт (или содовая) - 60 мл. Лайм - 0,5 шт. Лед - сколько уйдет',
-            'photo' => 'images/coctails/mojito.png',
+            'photo' => 'images/coctails/mojito.jpg',
         ],
         [
             'name' => "Пина Колада",
@@ -97,7 +97,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('coctails')->insert($this->cocktails);
+        DB::table('coctails')->insert($this->coctails);
         DB::table('ingridients')->insert($this->ingredients);
         DB::table('ingridients_coctails')->insert($this->recipe);
     }

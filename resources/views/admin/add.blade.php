@@ -2,7 +2,7 @@
 
 @section('content')
     <ul>
-        <li>добавить ингридиент</li>
-        <li>добавить коктель</li>
+        <li><button id="ingredient">добавить ингридиент</button></li>
+        <li><button id="cocktail">добавить коктель</button></li>
     </ul>
 @endsection
