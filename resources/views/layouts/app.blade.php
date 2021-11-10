@@ -58,7 +58,6 @@
                     <li><a href="{{ url('/main/listOfCoctails') }}">Коктейли</a></li>
                     <li><a href="{{ url('/main/ingridients') }}">Игридиеты</a></li>
                     <li><a href="{{ url('/main/bars') }}">Бары Днепра</a></li>
-                    <li><a href="{{ url('/home') }}">Корзина</a></li>
                     @if(Auth::user())
                         @if(Auth::user()->isAdmin())
                             <li><a href="{{ url('/admin/add') }}">Admin Panel</a></li>
