@@ -26,7 +26,7 @@ Route::delete('/admin/add/ingredients/{ingridient}', 'AdminController@deleteIngr
 Route::get('/admin/add/ingredients/{ingridient}/edit', 'AdminController@editIngredients')->middleware('is.admin')->name('ingredient.edit');
 //Route::resource('/admin/add', 'AdminController')->middleware('is.admin');
 
-
+Route::put('/admin/add/ingredients/{ingridient}', 'AdminController@updateIngredients')->middleware('is.admin')->name('ingredient.update');
 Route::get('/', 'HomeController@index');
 Route::get('/cocktails/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
     $cocktails = $cocktailController->getCocktails($request);
