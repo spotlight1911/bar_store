@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Ingridient;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -15,5 +18,26 @@ class AdminController extends Controller
      */
     public function index(){
         return view('admin.add');
+    }
+
+    public function indexIngredients(){
+        $ingridient = \App\Models\Ingridient::all();
+
+        return view('admin.ingredient',['ingridients'=>$ingridient]);
+    }
+    public function storeIngredients(Request $request){
+        $this->validate($request,
+            [
+                'name' => 'required|max:255'
+            ]);
+
+        $ingredients = new Ingridient();
+        $ingredients->name = $request->name;
+        $ingredients->description = $request->description;
+        $file_name = $request->photo->getClientOriginalName();
+        Storage::disk('public_uploads')->put("images".DIRECTORY_SEPARATOR."ingridients".DIRECTORY_SEPARATOR.$file_name, file_get_contents($request->photo->getRealPath()));
+        $ingredients->photo = "images/ingridients/".$file_name;
+        $ingredients->save();
+        return redirect('/admin/add');
     }
 }

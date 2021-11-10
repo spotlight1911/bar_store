@@ -62,6 +62,11 @@ return [
             'bucket' => 'your-bucket',
         ],
 
+        'public_uploads' => [
+            'driver' => 'local',
+            'root'   => public_path(),
+        ],
+
     ],
 
 ];
