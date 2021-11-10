@@ -40,4 +40,12 @@ class AdminController extends Controller
         $ingredients->save();
         return redirect('/admin/add');
     }
+    public function editIngredients(){
+
+    }
+    public function deleteIngredients(Ingridient $ingridient){
+
+        $ingridient->delete();
+        return redirect('admin/add/ingredient');
+    }
 }
