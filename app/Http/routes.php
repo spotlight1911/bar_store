@@ -26,10 +26,12 @@ Route::get('/', 'HomeController@index');
 Route::get('/cocktails/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
     $cocktails = $cocktailController->getCocktails($request);
     $ingridients = $cocktailController->getMissingIngredients($request);
+    $ingridientsName = $cocktailController->getIngridientName($request);
     return view('cocktails.cocktailsWithIngredients',
         [
             'cocktails' => $cocktails,
             'ingridients'=>$ingridients,
+            'ingridientsName'=>$ingridientsName,
         ]);
 })->name('cocktails.ingridientId');
 

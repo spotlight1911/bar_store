@@ -115,13 +115,13 @@ class DatabaseSeeder extends Seeder
             "count_of_ingridient"=>"Долька"
         ],
         [
-            "ingridient_id"=>"6",
-            "coctail_id"=>2,
+            "ingridient_id"=>"5",
+            "coctail_id"=>1,
             "count_of_ingridient"=>"4-5 веточек"
         ],
         [
-            "ingridient_id"=>"5",
-            "coctail_id"=>1,
+            "ingridient_id"=>"6",
+            "coctail_id"=>2,
             "count_of_ingridient"=>"По желанию"
         ],
         [

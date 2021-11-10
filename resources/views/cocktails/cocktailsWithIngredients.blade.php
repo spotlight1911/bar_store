@@ -7,7 +7,6 @@
     @if (count($cocktails) > 0)
         <div class="panel panel-default">
             <div class="panel-heading">
-                Please select ingridients
             </div>
             <div class="panel-body">
                 <table class="table table-striped task-table">
@@ -24,16 +23,27 @@
                             </td>
                             <td class="table-text">
                                 <div>{{$cocktail->description}}</div>
-                                    @if(count($ingridients[$cocktail->id])>0)
-                                        <div>
-                                            Для изготовления этого коктейля вам еще необходимо:
-                                            <ul>
-                                                @foreach($ingridients[$cocktail->id] as $name => $count)
-                                                    <li>{{$name}} - {{$count}}</li>
-                                                @endforeach
-                                            </ul>
-                                        </div>
-                                    @endif
+                                Для изготовления этого коктейля:
+                                @if(count($ingridientsName[$cocktail->id])>0)
+                                    <div>
+                                        вы уже выбрали:
+                                        <ul>
+                                            @foreach($ingridientsName[$cocktail->id] as $kye=>$name)
+                                                <li>{{$kye}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
+                                @if(count($ingridients[$cocktail->id])>0)
+                                    <div>
+                                        вам еще необходимо:
+                                        <ul>
+                                            @foreach($ingridients[$cocktail->id] as $name => $count)
+                                                <li>{{$name}} - {{$count}}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
