@@ -53,7 +53,7 @@
         </div>
     @else
         <div class="panel-heading">
-            Site not have ingridients
+            Вы не выбрали ингредиенты
         </div>
     @endif
 @endsection
