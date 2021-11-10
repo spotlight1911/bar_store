@@ -40,8 +40,8 @@ class AdminController extends Controller
         $ingredients->save();
         return redirect('/admin/add');
     }
-    public function editIngredients(){
-
+    public function editIngredients(Ingridient $ingridient){
+        return view('admin.edit', ['ingredient' => $ingridient,]);
     }
     public function deleteIngredients(Ingridient $ingridient){
 

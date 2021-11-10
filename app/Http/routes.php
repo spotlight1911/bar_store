@@ -23,7 +23,7 @@ Route::get('/admin/add', 'AdminController@index')->middleware('is.admin');
 Route::get('/admin/add/ingredient', 'AdminController@indexIngredients')->middleware('is.admin');
 Route::post('/admin/add/ingredients', 'AdminController@storeIngredients')->middleware('is.admin');
 Route::delete('/admin/add/ingredients/{ingridient}', 'AdminController@deleteIngredients')->middleware('is.admin')->name('ingredient.destroy');
-Route::post('/admin/add/ingredients/{ingredient}/edit', 'AdminController@editIngredients')->middleware('is.admin')->name('ingredient.edit');
+Route::get('/admin/add/ingredients/{ingridient}/edit', 'AdminController@editIngredients')->middleware('is.admin')->name('ingredient.edit');
 //Route::resource('/admin/add', 'AdminController')->middleware('is.admin');
 
 
