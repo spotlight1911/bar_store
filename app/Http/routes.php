@@ -23,28 +23,12 @@ Route::get('/admin/add', 'AdminController@index')->middleware('is.admin');
 
 
 Route::get('/', 'HomeController@index');
-Route::get('/cocktails/cocktails', function (\App\Http\Controllers\CocktailController $cocktailController, Request $request){
-    $cocktails = $cocktailController->getCocktails($request);
-    $ingridients = $cocktailController->getMissingIngredients($request);
-    $ingridientsName = $cocktailController->getIngridientName($request);
-    return view('cocktails.cocktailsWithIngredients',
-        [
-            'cocktails' => $cocktails,
-            'ingridients'=>$ingridients,
-            'ingridientsName'=>$ingridientsName,
-        ]);
-})->name('cocktails.ingridientId');
 
 
 Route::get('/main/bars', 'HomeController@bars');
-Route::get('/main/ingridients', function () {
-        $ingridients = \App\Models\Ingridient::all();
-        return view('main.ingridients',
-            [
-                'ingridients' => $ingridients,
-            ]);
-    }
-);
+Route::get('/cocktails/cocktails', 'CocktailController@cocktailsView');
+Route::get('/cocktails/ingridients', 'CocktailController@getIngridientToCocktail');
+Route::get('/main/ingridients', 'IngredientsController@index');
 
 Route::get('/main/listOfCoctails', function (){
     $coctails = \App\Models\Coctail::all();
@@ -53,13 +37,3 @@ Route::get('/main/listOfCoctails', function (){
             'coctails'=> $coctails,
         ]);
 });
-
-
-Route::get('/cocktails/ingridients', function (){
-    $ingridients = \App\Models\Ingridient::all();
-    return view('cocktails.cocktailsIngredients',
-        [
-            'ingridients'=>$ingridients,
-            'ingridientId'=>session('ingridient-id')
-        ]);
-})->name('cocktails.ingredients');

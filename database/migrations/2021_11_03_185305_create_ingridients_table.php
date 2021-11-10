@@ -17,6 +17,7 @@ class CreateIngridientsTable extends Migration
             $table->string('name',255);
             $table->string('description',255);
             $table->string('photo',255);
+            $table->timestampsTz();
         });
     }
 

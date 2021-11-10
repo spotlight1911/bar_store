@@ -18,7 +18,7 @@ class CreateCoctailsTable extends Migration
             $table->text('description',500);
             $table->text('recipe',500);
             $table->string('photo',255);
-
+            $table->timestampsTz();
         });
     }
 
