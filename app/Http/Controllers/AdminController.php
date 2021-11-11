@@ -69,8 +69,15 @@ class AdminController extends Controller
         return redirect('/admin/add/ingredient');
     }
     public function indexCocktails(){
+//        $cocktails = \App\Models\Coctail::all()->pluck('id');
+//        foreach ($cocktails as $key => $value){
+//            $ingridientsId = Ingridients_coctail::all()->where('coctail_id',1)->pluck('id');
+//            $ingridientsCount = Ingridients_coctail::all()->where('coctail_id',1)->pluck('count_of_ingridient');
+//        }
+//
+//
+//        dd($ingridientsId, $ingridientsCount);
         $cocktails = \App\Models\Coctail::all();
-
         return view('admin.cocktail',['cocktails'=>$cocktails]);
     }
     public function storeCocktail(Request $request){
@@ -80,7 +87,6 @@ class AdminController extends Controller
                 'description' => 'required|max:255',
                 'recipe' => 'required|max:255',
             ]);
-//        $ingridients_cocktail = new Ingridients_coctail();
         $cocktails = new Coctail();
         $cocktails->name = $request->name;
         $cocktails->description = $request->description;
@@ -96,16 +102,9 @@ class AdminController extends Controller
             $ingridients_cocktail->count_of_ingridient = $request->$count;
             $ingridients_cocktail->save();
         }
-//        $ingridients_cocktail->save();
-//        $ingridients_cocktail->ingridient_id = $request->
-//        $cocktails->recipe = $request->recipe;
-//        $file_name = $request->photo->getClientOriginalName();
-//        Storage::disk('public_uploads')->put("images".DIRECTORY_SEPARATOR."cocktails".DIRECTORY_SEPARATOR.$file_name, file_get_contents($request->photo->getRealPath()));
-//        $cocktails->photo = "images/cocktails/".$file_name;
         return redirect('/admin/add/cocktails');
     }
     public function addIngridientToCocktail(Request $request){
-//        dd($request->photo);
         $this->validate($request,
             [
                 'name' => 'required|max:255',
