@@ -20,6 +20,9 @@ class AdminController extends Controller
     public function index(){
         return view('admin.add');
     }
+    public function addAdmin(){
+        echo 'Add admin';
+    }
 
     public function indexIngredients(){
         $ingridient = \App\Models\Ingridient::all();
