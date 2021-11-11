@@ -4,7 +4,7 @@
     <h2>Edit ingredients</h2>
     <div class="panel-body">
         @include('common.errors')
-        <form action="{{ route('ingredient.update', $ingredient->id) }}" method="POST" class="form-horizontal">
+        <form enctype="multipart/form-data" action="{{ route('ingredient.update', $ingredient->id) }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
         {{method_field('PUT')}}
         <!-- Имя задачи -->
