@@ -25,9 +25,14 @@ Route::post('/admin/add/ingredients', 'AdminController@storeIngredients')->middl
 Route::delete('/admin/add/ingredients/{ingridient}', 'AdminController@deleteIngredients')->middleware('is.admin')->name('ingredient.destroy');
 Route::get('/admin/add/ingredients/{ingridient}/edit', 'AdminController@editIngredients')->middleware('is.admin')->name('ingredient.edit');
 //Route::resource('/admin/add', 'AdminController')->middleware('is.admin');
-
 Route::put('/admin/add/ingredients/{ingridient}', 'AdminController@updateIngredients')->middleware('is.admin')->name('ingredient.update');
 Route::get('/', 'HomeController@index');
+
+Route::get('/admin/add/cocktails', 'AdminController@indexCocktails')->middleware('is.admin');
+Route::post('/admin/add/cocktails', 'AdminController@storeCocktail')->middleware('is.admin');
+Route::delete('/admin/add/cocktails/{coctail}', 'AdminController@deleteCocktail')->middleware('is.admin')->name('cocktail.destroy');
+Route::get('/admin/add/cocktails/{coctail}/edit', 'AdminController@editCocktail')->middleware('is.admin')->name('cocktail.edit');
+Route::put('/admin/add/cocktails/{coctail}', 'AdminController@updateCocktail')->middleware('is.admin')->name('cocktail.update');
 
 
 Route::get('/main/bars', 'HomeController@bars');

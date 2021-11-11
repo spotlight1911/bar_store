@@ -4,36 +4,36 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 class DatabaseSeeder extends Seeder
 {
-    private $coctails=[
+    private $cocktails=[
         [
             'name' => "Сайдкар",
             'description' => 'Классический коктейль, традиционно приготавливаемый из коньяка, апельсинового ликёра',
             'recipe' => 'Апельсиновый ликер типа Куантро (охлажденный) - 2 ст. л. Коньяк - 1 ст. л. Игристое вино охлажденное (испанское игристое вино Кава) - 1/2 стакана. Долька лимона. Лимонная цедра для украшения (по желанию)',
-            'photo' => 'images/coctails/sidecar.jpg',
+            'photo' => 'images/cocktails/sidecar.jpg',
         ],
         [
             'name' => "Мохито",
             'description' => 'Освежающий сладкий лонг на основе рома с большим количеством мяты и лайма',
             'recipe' => 'Мята свежая - 4-5 веточек. Коричневый тростниковый сахар (или обычный) - 1 ч. л. Белый ром (например, Bacardi) - 50 мл. Спрайт (или содовая) - 60 мл. Лайм - 0,5 шт. Лед - сколько уйдет',
-            'photo' => 'images/coctails/mojito.jpg',
+            'photo' => 'images/cocktails/mojito.jpg',
         ],
         [
             'name' => "Пина Колада",
             'description' => 'Традиционный карибский алкогольный коктейль на основе светлого рома, с кокосовым молоком и ананасовым соком.',
             'recipe' => 'Ром белый – 50 мл (3 ст. л.). Сок ананасовый – 50 мл (3 ст. л.). Ликер кокосовый – 36 мл (6 ч. л.). Сахарная пудра или мелкий сахар (если используется свежий фрукт) – 5 мл (1 ч. л.)',
-            'photo' => 'images/coctails/pinacolada.jpg',
+            'photo' => 'images/cocktails/pinacolada.jpg',
         ],
         [
             'name' => "Черный Русский",
             'description' => 'Классический коктейль, традиционно приготавливаемый из коньяка, апельсинового ликёра',
             'recipe' => 'Водка — 50 мл (3 ст. л.). Кофейный ликер Калуа (Kahlua) или «Тетушка Мария» (Tia Maria) — 25 мл ( 1,5 ст. л.)',
-            'photo' => 'images/coctails/daiquiri.jpg',
+            'photo' => 'images/cocktails/daiquiri.jpg',
         ],
         [
             'name' => "Голубое небо",
             'description' => 'Не нашел :)',
             'recipe' => 'Кокосовый ром Малибу - 1 стакан. Кокосовое молоко - 2/3 стакана. Ананасовый сок - 3/4 стакана. Легкий сахарный сироп - 3/4 стакана. Лед. Ликер Кюрасао Блю - 1/8 стакана. Кокосовые дольки для сервировки',
-            'photo' => 'images/coctails/bluesky.jpg',
+            'photo' => 'images/cocktails/bluesky.jpg',
         ]
     ];
     private $ingredients=[
@@ -162,7 +162,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('coctails')->insert($this->coctails);
+        DB::table('coctails')->insert($this->cocktails);
         DB::table('ingridients')->insert($this->ingredients);
         DB::table('ingridients_coctails')->insert($this->recipe);
     }
