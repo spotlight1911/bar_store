@@ -53,16 +53,17 @@ class AdminController extends Controller
             [
                 'name' => 'required|max:255',
                 'description' => 'required|max:255',
-                'photo' => 'required|max:255'
+                'photo' => 'max:255'
             ]);
-//        $ingredients = new Ingridient();
-        $ingredient->name = $request->name;
-        $ingredient->description = $request->description;
-        $file_name = $request->photo->getClientOriginalName();
+
+        $ingridient->name = $request->name;
+        $ingridient->description = $request->description;
+        if($request->photo){
+//            dd($request->photo);
+        $file_name = $request->photo;
         Storage::disk('public_uploads')->put("images".DIRECTORY_SEPARATOR."ingridients".DIRECTORY_SEPARATOR.$file_name, file_get_contents($request->photo->getRealPath()));
-        $ingredient->photo = "images/ingridients/".$file_name;
-        $ingredient->save();
+        $ingridient->photo = "images/ingridients/".$file_name;}
+        $ingridient->save();
         return redirect('/admin/add');
-    }
     }
 }

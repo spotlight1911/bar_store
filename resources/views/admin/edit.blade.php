@@ -3,7 +3,7 @@
 @section('form')
     <h2>Edit ingredients</h2>
     <div class="panel-body">
-{{--        @include('common.errors')--}}
+        @include('common.errors')
         <form action="{{ route('ingredient.update', $ingredient->id) }}" method="POST" class="form-horizontal">
         {{ csrf_field() }}
         {{method_field('PUT')}}
@@ -17,7 +17,14 @@
             <div class="form-group">
                 <label for="descriptions" class="col-sm-3 control-label">Описание</label>
                 <div class="col-sm-6">
-                    <textarea  name="description" id="descriptions" class="form-control" value="{{$ingredient->description}}"></textarea>
+                    <textarea  name="description" id="descriptions" class="form-control" >{{$ingredient->description}}</textarea>
+                </div>
+            </div>
+            <img src="{{'/'.$ingredient->photo}}"/>
+            <div class="form-group">
+                <label for="photos" class="col-sm-3 control-label">Фото</label>
+                <div class="col-sm-6">
+                    <input type="file" name="photo" id="photos" class="form-control">
                 </div>
             </div>
             <div class="form-group">
