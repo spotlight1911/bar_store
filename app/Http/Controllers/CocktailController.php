@@ -69,4 +69,22 @@ class CocktailController extends Controller
 //       $cocktailsId = $this->cocktailId($request);
 //       dd($ingridientsName);
     }
+    public function getIngridientToCocktail(){
+        $ingridients = \App\Models\Ingridient::all();
+        return view('cocktails.cocktailsIngredients',
+            [
+                'ingridients'=>$ingridients,
+            ]);
+    }
+    public function cocktailsView(Request $request){
+        $cocktails = $this->getCocktails($request);
+        $ingridients = $this->getMissingIngredients($request);
+        $ingridientsName = $this->getIngridientName($request);
+        return view('cocktails.cocktailsWithIngredients',
+            [
+                'cocktails' => $cocktails,
+                'ingridients'=>$ingridients,
+                'ingridientsName'=>$ingridientsName,
+            ]);
+    }
 }

@@ -13,8 +13,12 @@ class IngredientsController extends Controller
      * @param Ingredient $ingredients
      * @return \Illuminate\Http\Response
      */
-    public function index(Ingredient $ingredients){
-//        return view('ingredients.index', ['ingredients' => $ingredients]);
-        return view('ingredients.index');
+    public function index(){
+        $ingridients = \App\Models\Ingridient::all();
+        return view('main.ingridients',
+            [
+                'ingridients' => $ingridients,
+            ]);
     }
+
 }
