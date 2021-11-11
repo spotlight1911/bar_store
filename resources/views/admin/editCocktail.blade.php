@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="recipies" class="col-sm-3 control-label">Описание</label>
+                <label for="recipies" class="col-sm-3 control-label">Рецепт</label>
                 <div class="col-sm-6">
                     <textarea  name="recipe" id="recipies" class="form-control" >{{$cocktail->recipe}}</textarea>
                 </div>

@@ -6,7 +6,7 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form enctype="multipart/form-data" action="{{ url('/admin/add/cocktails') }}" method="POST" class="form-horizontal">
+                    <form enctype="multipart/form-data" action="{{ url('/admin/add/ingridientstococktails') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="ingredient" class="col-sm-3 control-label">Коктель</label>
@@ -35,7 +35,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-plus"></i> Добавить коктель
+                                    <i class="fa fa-plus"></i> Добавить ингридиенты
                                 </button>
                             </div>
                         </div>

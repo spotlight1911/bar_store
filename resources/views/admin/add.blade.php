@@ -18,5 +18,6 @@
         </li>
     </ul>
     @yield('form')
+    @yield('cocktail')
 
 @endsection
