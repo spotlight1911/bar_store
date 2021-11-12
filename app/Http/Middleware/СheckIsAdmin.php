@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
-class checkIsAdmin
+class СheckIsAdmin
 {
     /**
      * Handle an incoming request.

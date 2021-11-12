@@ -13,9 +13,6 @@
 
 use Illuminate\Http\Request;
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
 
 Route::auth();
 
@@ -24,7 +21,7 @@ Route::get('/admin/add/ingredient', 'AdminController@indexIngredients')->middlew
 Route::post('/admin/add/ingredients', 'AdminController@storeIngredients')->middleware('is.admin');
 Route::delete('/admin/add/ingredients/{ingridient}', 'AdminController@deleteIngredients')->middleware('is.admin')->name('ingredient.destroy');
 Route::get('/admin/add/ingredients/{ingridient}/edit', 'AdminController@editIngredients')->middleware('is.admin')->name('ingredient.edit');
-//Route::resource('/admin/add', 'AdminController')->middleware('is.admin');
+
 Route::put('/admin/add/ingredients/{ingridient}', 'AdminController@updateIngredients')->middleware('is.admin')->name('ingredient.update');
 Route::get('/', 'HomeController@index');
 
