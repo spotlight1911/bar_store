@@ -20,14 +20,16 @@
                     <textarea  name="description" id="descriptions" class="form-control" >{{$ingredient->description}}</textarea>
                 </div>
             </div>
-            <img src="{{'/'.$ingredient->photo}}"/>
+            <div class="text-center">
+                <img src="{{'/'.$ingredient->photo}}" style="height: 150px" class="imgOfBar" />
+            </div>
             <div class="form-group">
                 <label for="photos" class="col-sm-3 control-label">Фото</label>
                 <div class="col-sm-6">
                     <input type="file" name="photo" id="photos" class="form-control">
                 </div>
             </div>
-            <div class="form-group">edit.blade.php
+            <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-6">
                     <button type="submit" class="btn btn-default">
                         <i class="fa fa-save"></i> Save

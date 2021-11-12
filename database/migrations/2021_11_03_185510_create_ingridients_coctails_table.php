@@ -21,8 +21,7 @@ class CreateIngridientsCoctailsTable extends Migration
                 ->unsigned()
                 ->index();
             $table->string('count_of_ingridient',50);
-            $table->timestamp();
-
+            $table->timestamps();
             $table->foreign('ingridient_id')
                 ->references('id')
                 ->on('ingridients');

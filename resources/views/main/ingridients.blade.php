@@ -16,7 +16,7 @@
                     @foreach ($ingridients as $ingridient)
                         <tr>
                             <td >
-                                <div><img src="{{asset($ingridient->photo)}}" alt = "Not have photo"/></div>
+                                <div><img src="{{asset($ingridient->photo)}}" alt = "Not have photo" class="imgOfBar" /></div>
                             </td>
                             <td class="table-text">
                                 <div>{{$ingridient->name }}</div>

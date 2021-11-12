@@ -16,7 +16,6 @@ class CreateCoctailsTable extends Migration
             $table->increments('id');
             $table->string('name',255);
             $table->text('description',500);
-            $table->text('recipe',500);
             $table->string('photo',255);
             $table->timestamps();
 

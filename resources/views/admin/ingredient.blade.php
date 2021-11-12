@@ -3,7 +3,7 @@
 @section('form')
     <div class="panel-body">
         <!-- Отображение ошибок проверки ввода -->
-{{--    @include('common.errors')--}}
+    @include('common.errors')
 
     <!-- Форма новой задачи -->
         <form enctype="multipart/form-data" action="{{ url('/admin/add/ingredients') }}" method="POST" class="form-horizontal">
@@ -37,12 +37,11 @@
     </div>
     <div class="panel-body">
         <table class="table table-striped task-table">
-            <!-- Тело таблицы -->
             <tbody>
             @foreach ($ingridients as $ingridient)
                 <tr>
                     <td >
-                        <div><img src="{{asset($ingridient->photo)}}" alt = "Not have photo"/></div>
+                        <div><img src="{{asset($ingridient->photo)}}" alt = "Not have photo" class="imgOfBar" /></div>
                     </td>
                     <td class="table-text">
                         <div>{{$ingridient->name }}</div>
