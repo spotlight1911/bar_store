@@ -30,6 +30,7 @@ class AdminController extends Controller
             ]);
     }
     public function editAdmin(Request $request){
+        User::where('is_admin',1)->update(['is_admin'=> 0]);
         User::wherein('id',$request->users)->update(['is_admin'=> 1]);
         return redirect('/admin/add/admin');
     }
