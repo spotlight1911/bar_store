@@ -35,7 +35,9 @@ Route::get('/admin/add/cocktails/{coctail}/edit', 'AdminController@editCocktail'
 Route::post('/admin/add/cocktails/{coctail}/editIngridients', 'AdminController@editIngridientsToCocktails')->middleware('is.admin')->name('cocktail.editIngridients');
 Route::put('/admin/add/cocktails/{coctail}', 'AdminController@updateCocktail')->middleware('is.admin')->name('cocktail.update');
 Route::get('/admin/add/users', 'SuperAdminController@indexUsers')->middleware('is.admin')->name('user.index');
-Route::get('/admin/add/users/{user}/edit', 'SuperAdminController@adminRightsUser')->middleware('is.admin')->name('user.edit');
+Route::get('/admin/add/users/{user}/edit/take', 'SuperAdminController@adminTakeRightsUser')->middleware('is.superAdmin')->name('user.takeRights');
+Route::get('/admin/add/users/{user}/edit/give', 'SuperAdminController@adminGiveRightsUser')->middleware('is.superAdmin')->name('user.giveRights');
+Route::delete('/admin/add/users/{user}', 'SuperAdminController@deleteUser')->middleware('is.superAdmin')->name('user.destroy');
 Route::get('/main/bars', 'HomeController@bars');
 Route::get('/cocktails/cocktails', 'CocktailController@cocktailsView');
 Route::get('/cocktails/ingridients', 'CocktailController@getIngridientToCocktail');

@@ -18,7 +18,7 @@
             </div>
         </div>
         <div class="form-group text-center">
-            <img src="{{'/'.$cocktail->photo}}" style="height: 150px" class="imgOfBar"/>
+            <img src="{{$cocktail->photo}}" style="height: 150px" class="imgOfBar"/>
         </div>
         <div class="form-group text-center">
             <div class="col-sm-6">

@@ -41,7 +41,7 @@ class AdminController extends Controller
         Storage::disk('public_uploads')->put("images".DIRECTORY_SEPARATOR."ingridients".DIRECTORY_SEPARATOR.$file_name, file_get_contents($request->photo->getRealPath()));
         $ingredients->photo = "images/ingridients/".$file_name;
         $ingredients->save();
-        return redirect('/admin/add/ingredient');
+        return $this->indexIngredients();
     }
     public function deleteIngredients(Ingridient $ingridient){
 
@@ -56,7 +56,6 @@ class AdminController extends Controller
             [
                 'name' => 'required|max:255',
                 'description' => 'required|max:255',
-//                'photo' => 'max:255'
             ]);
 
         $ingridient->name = $request->name;
