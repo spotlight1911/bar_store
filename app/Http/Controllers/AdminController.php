@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Coctail;
 use App\Models\Ingridient;
 use App\Models\Ingridients_coctail;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -22,7 +23,15 @@ class AdminController extends Controller
         return view('admin.add');
     }
     public function addAdmin(){
-        echo 'Add admin';
+        $users = \App\User::all();
+        return view('admin.users',
+            [
+                'users'=>$users,
+            ]);
+    }
+    public function editAdmin(Request $request){
+        User::wherein('id',$request->users)->update(['is_admin'=> 1]);
+        return redirect('/admin/add/admin');
     }
 
     public function indexIngredients(){

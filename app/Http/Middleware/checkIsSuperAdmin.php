@@ -3,10 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 
-class checkIsSuperAdmin
+class CheckIsSuperAdmin
 {
     /**
      * Handle an incoming request.

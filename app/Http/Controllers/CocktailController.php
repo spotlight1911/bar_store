@@ -21,7 +21,6 @@ class CocktailController extends Controller
         return \App\Models\Coctail::wherein('id', $ingridCocktail)->get();
     }
     public function getMissingIngredients($request){
-//        $ingridients = \App\Models\Coctail::cocktailIngridients($request['ingridienеs']);
         $ingridCocktail = $this->cocktailId($request);
         $ingridients=[];
         foreach($ingridCocktail as $id => $value){
@@ -40,7 +39,6 @@ class CocktailController extends Controller
                 $ingridients[$value]=[];
             }
         }
-//        dd($ingridCocktail);
         return $ingridients;
     }
     public function getIngridientName($request){
@@ -62,12 +60,7 @@ class CocktailController extends Controller
                 $ingridients[$value]=[];
             }
         }
-//        dd($ingridCocktail);
         return $ingridients;
-//       $ingridientsName =  Ingridient::where('id', $request['ingridienеs'])
-//           ->pluck('name');
-//       $cocktailsId = $this->cocktailId($request);
-//       dd($ingridientsName);
     }
     public function getIngridientToCocktail(){
         $ingridients = \App\Models\Ingridient::all();
