@@ -16,7 +16,7 @@
                     @foreach ($cocktails as $cocktail)
                         <tr>
                             <td >
-                                <div><img src="{{asset($cocktail->photo)}}" alt = "Not have photo"/></div>
+                                <div><img src="{{asset($cocktail->photo)}}" alt = "Not have photo" class="imgOfBar"/></div>
                             </td>
                             <td class="table-text">
                                 <div>{{$cocktail->name }}</div>
