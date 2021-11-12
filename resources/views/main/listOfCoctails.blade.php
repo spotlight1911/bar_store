@@ -7,17 +7,48 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                 <table>
-        @foreach($coctails as $coctail)
-             <tr>
-                 <td rowspan="2"><img src="{{asset($coctail->photo)}}" class="imgOfBar" ></td>
-                   <td><h2>{{ $coctail->name }}</h2></td>
-             </tr>
+                    @foreach($cocktails as $cocktail)
                         <tr>
+                            <td rowspan="{{5+count($recipe[$cocktail->id])}}"><img src="{{asset($cocktail->photo)}}" class="imgOfBar" ></td>
+                            <td><h2>{{ $cocktail->name }}</h2></td>
                             <td>
-                                <h4>{{$coctail->recipe}}</h4>
                             </td>
                         </tr>
-        @endforeach
+                        <tr>
+                            <td>
+                                <h3>Описание: </h3>
+                                <h4>{{$cocktail->description}}</h4>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <h3>Рецепт: </h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Наименование:
+                            </td>
+                            <td>
+                                Количество:
+                            </td>
+                        </tr>
+                        <tr>
+                                @foreach($recipe[$cocktail->id] as $key => $value)
+                                <tr>
+                                    <td>
+                                        {{$key}}
+                                    </td>
+                                    <td colspan="2">
+                                        {{$value}}
+                                    </td>
+                                    <td>
+                                    </td>
+                                </tr>
+                                @endforeach
+                    @endforeach
                 </table>
                     <footer class="navbar navbar-default ">
                             <div class="navbar-header">

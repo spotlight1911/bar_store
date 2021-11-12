@@ -6,7 +6,8 @@
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <form enctype="multipart/form-data" action="{{ url('/admin/add/cocktails') }}" method="POST" class="form-horizontal">
+                    @include('common.errors')
+                    <form enctype="multipart/form-data" action="{{ url('/admin/add/ingridientstococktails') }}" method="POST" class="form-horizontal">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="ingredient" class="col-sm-3 control-label">Коктель</label>
@@ -21,12 +22,6 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="recipes" class="col-sm-3 control-label">Рецепт</label>
-                            <div class="col-sm-6">
-                                <textarea  name="recipe" id="recipes" class="form-control"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <label for="photos" class="col-sm-3 control-label">Фото</label>
                             <div class="col-sm-6">
                                 <input type="file" name="photo" id="photos" class="form-control">
@@ -35,7 +30,7 @@
                         <div class="form-group">
                             <div class="col-sm-offset-3 col-sm-6">
                                 <button type="submit" class="btn btn-default">
-                                    <i class="fa fa-plus"></i> Добавить коктель
+                                    <i class="fa fa-plus"></i> Добавить ингридиенты
                                 </button>
                             </div>
                         </div>
@@ -43,7 +38,7 @@
                 <table>
         @foreach($cocktails as $cocktail)
              <tr>
-                 <td rowspan="3"><img src="{{asset($cocktail->photo)}}" class="imgOfBar" ></td>
+                 <td rowspan="{{5+count($recipe[$cocktail->id])}}"><img src="{{asset($cocktail->photo)}}" class="imgOfBar" ></td>
                  <td><h2>{{ $cocktail->name }}</h2></td>
                  <td>
                      <form method="post" action="{{route('cocktail.destroy', $cocktail->id)}}">
@@ -66,12 +61,32 @@
                      <h4>{{$cocktail->description}}</h4>
                  </td>
              </tr>
-             <tr>
-                 <td>
-                     <h3>Рецепт: </h3>
-                     <h4>{{$cocktail->recipe}}</h4>
-                 </td>
-             </tr>
+                        <tr>
+                            <td>
+                                <h3>Рецепт: </h3>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Наименование:
+                            </td>
+                            <td>
+                                Количество:
+                            </td>
+                        </tr>
+                        <tr>
+                        @foreach($recipe[$cocktail->id] as $key => $value)
+                            <tr>
+                                <td>
+                                    {{$key}}
+                                </td>
+                                <td colspan="2">
+                                    {{$value}}
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        @endforeach
         @endforeach
                 </table>
                     <footer class="navbar navbar-default ">
