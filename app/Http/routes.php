@@ -31,8 +31,8 @@ Route::post('/admin/add/ingridientstococktails', 'AdminController@addIngridientT
 Route::delete('/admin/add/cocktails/{coctail}', 'AdminController@deleteCocktail')->middleware('is.admin')->name('cocktail.destroy');
 Route::get('/admin/add/cocktails/{coctail}/edit', 'AdminController@editCocktail')->middleware('is.admin')->name('cocktail.edit');
 Route::put('/admin/add/cocktails/{coctail}', 'AdminController@updateCocktail')->middleware('is.admin')->name('cocktail.update');
-
-
+Route::get('/admin/add/users', 'SuperAdminController@indexUsers')->middleware('is.admin')->name('user.index');
+Route::get('/admin/add/users/{user}/edit', 'SuperAdminController@adminRightsUser')->middleware('is.admin')->name('user.edit');
 Route::get('/main/bars', 'HomeController@bars');
 Route::get('/cocktails/cocktails', 'CocktailController@cocktailsView');
 Route::get('/cocktails/ingridients', 'CocktailController@getIngridientToCocktail');
